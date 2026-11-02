@@ -8,10 +8,10 @@ An interactive, presentation-grade web application designed for Kushal Sharma's 
 
 Instead of presenting with a static PowerPoint or Google Slides, this web application acts as a **living technical demonstration** of Kushal's engineering capabilities:
 - **Financial-Tech Design Language**: Sleek Morningstar / PitchBook aesthetic (Morningstar Red, deep slate, dark glassmorphism, responsive data cards).
-- **Interactive Slide Presentation**: 8 structured, presentation-ready slides navigated via keyboard (`←` / `→` or `Space`), complete with a progress bar.
+- **Interactive Slide Presentation**: 7 structured, presentation-ready slides navigated via keyboard (`←` / `→` or `Space`), complete with a progress bar.
 - **Presenter Talking Notes Drawer (`P` shortcut)**: Built-in, private speaking cues customized for every slide so Kushal can deliver points with ease while presenting.
 - **Job Description 1-to-1 Alignment Matrix**: Direct mapping between PitchBook’s JD requirements (Java, Spring, SQL/NoSQL, AI-augmented engineering, TDD, K8s, DB migration) and Kushal’s actual production deliverables.
-- **Live Interactive Data Pipeline Simulator**: A functional interactive console simulating PitchBook's collection architecture (Ingestion &rarr; L1 Deduplication &rarr; Kafka Bus &rarr; TDD Validation &rarr; Dual-DB Persistence).
+- **Production Architecture Case Studies**: Interactive deep-dives into Remora's 50% enterprise client scaling, Spring AI production RAG, and collection ingestion pipelines.
 - **Interview Q&A Hub**: Interactive technical accordion addressing common interview questions (legacy modernization, multi-DB reconciliation, enterprise AI, TDD).
 
 ---
@@ -49,17 +49,16 @@ Then visit: [http://localhost:3000](http://localhost:3000)
 
 ## 📑 Slide-by-Slide Outline & Strategy
 
-1. **Slide 1: Executive Summary & PitchBook Fit**: Overview of 7+ years of experience, core metrics (300% ingestion boost, 30% K8s gain, MS in CS from University of Florida), and target role alignment.
+1. **Slide 1: Executive Summary & PitchBook Fit**: Overview of 7+ years of experience, core metrics (50% Remora client expansion, 30% K8s gain, MS in CS from University of Florida), and target role alignment.
 2. **Slide 2: Why Morningstar & PitchBook**: Passion for PitchBook's private market data mission, empathy for legacy Java/JSP to Spring Boot/React modernization, and alignment with Morningstar's core culture (customer empathy, positive intent).
-3. **Slide 3: Professional Journey & Timeline**: Filterable experience breakdown across Wissen Technology, Remora, Itiviti, QualityKiosk, Verdantis, and Sonos.
+3. **Slide 3: Professional Journey & Timeline**: Filterable experience breakdown across Remora, Sonos, Itiviti, QualityKiosk, and Verdantis.
 4. **Slide 4: Job Description Alignment Matrix**: Detailed side-by-side evidence matrix matching every JD requirement.
 5. **Slide 5: Architecture Deep-Dives**:
-   - Case Study 1: High-throughput Collection & Ingestion Pipeline (300% throughput gain).
+   - Case Study 1: Enterprise Platform Scaling (Remora 50% client growth: 80 to 120 clients, +30% K8s throughput).
    - Case Study 2: Enterprise Spring AI & RAG Engine in Java backend.
-   - Case Study 3: Spring Security Audit System with interactive JSON diffing.
-6. **Slide 6: Live Interactive Collection Simulator**: Interactive widget demonstrating multi-source ingestion, duplicate detection, and dual-database parity.
-7. **Slide 7: Education & Academic Rigor**: Master of Science in CS at University of Florida, Graduate Teaching Assistantship under Prof. Ruogu Fang, and key systems projects.
-8. **Slide 8: Engineering Philosophy & Q&A Discussion Hub**: TDD discipline, Strangler Fig pattern, mentorship with positive intent, and technical deep-dive answers.
+   - Case Study 3: Data Collection, Ingestion & Deduplication Pipeline (shifted from #1 to #3).
+6. **Slide 6: Education & Academic Rigor**: Master of Science in CS at University of Florida, Graduate Teaching Assistantship under Prof. Ruogu Fang, and key systems projects.
+7. **Slide 7: Engineering Philosophy & Q&A Discussion Hub**: TDD discipline, Strangler Fig pattern, mentorship with positive intent, and technical deep-dive answers.
 
 ---
 

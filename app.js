@@ -1,6 +1,6 @@
 /**
  * Kushal Sharma - Morningstar & PitchBook Presentation App
- * Interactive Slide Deck, Live Data Simulator & Executive Dossier
+ * Interactive Slide Deck & Production Architecture Dossier
  */
 
 // Slide metadata & talking points
@@ -12,7 +12,7 @@ const SLIDES_DATA = [
       "• Open with enthusiasm: Thank the Morningstar & PitchBook team for this opportunity.",
       "• State your core identity: 'I am a Senior Software Engineer with 7+ years of experience specializing in high-throughput enterprise backends, data reconciliation, and AI-augmented systems.'",
       "• Directly connect to the JD: 'The PitchBook Collection Applications team is modernizing mission-critical financial collection systems—moving from legacy Java/JSP to resilient Spring Boot microservices, modern React components, and leveraging AI tools like GitHub Copilot. This matches my exact career track.'",
-      "• Highlight the 4 stats: 7+ yrs experience, 300% ingestion boost at Verdantis, 30% K8s performance gain at Remora, and Master's in CS from Univ. of Florida."
+      "• Highlight the 4 stats: 7+ yrs experience, 50% enterprise client growth at Remora, 30% K8s performance gain, and Master's in CS from Univ. of Florida."
     ]
   },
   {
@@ -257,92 +257,6 @@ function switchCaseStudy(num) {
 /**
  * Interactive Collection Pipeline Simulation
  */
-let selectedPayload = 'private_equity';
-
-function setSimPayload(type) {
-  selectedPayload = type;
-  document.querySelectorAll('.sim-source-btn').forEach(btn => {
-    btn.classList.remove('active', 'border-red-500/50', 'bg-red-950/20', 'text-white');
-    btn.classList.add('border-gray-800', 'bg-gray-950', 'text-gray-300');
-    const check = btn.querySelector('[data-lucide="check"]');
-    if (check) check.remove();
-  });
-
-  let activeBtn;
-  if (type === 'private_equity') activeBtn = document.getElementById('simSource1');
-  else if (type === 'vc_fund') activeBtn = document.getElementById('simSource2');
-  else activeBtn = document.getElementById('simSource3');
-
-  if (activeBtn) {
-    activeBtn.classList.add('active', 'border-red-500/50', 'bg-red-950/20', 'text-white');
-    activeBtn.classList.remove('border-gray-800', 'bg-gray-950', 'text-gray-300');
-    const checkSpan = document.createElement('i');
-    checkSpan.setAttribute('data-lucide', 'check');
-    checkSpan.className = 'w-4 h-4 text-red-400';
-    activeBtn.appendChild(checkSpan);
-  }
-
-  if (window.lucide) lucide.createIcons();
-}
-
-function runPipelineSimulation() {
-  const btn = document.getElementById('runPipelineSimBtn');
-  const consoleEl = document.getElementById('simLogConsole');
-  const statusBadge = document.getElementById('simStatusBadge');
-  const latencyEl = document.getElementById('simLatency');
-  const dedupEl = document.getElementById('simDedup');
-
-  btn.disabled = true;
-  btn.innerHTML = `<span class="inline-block animate-spin mr-2">⚙️</span> Processing Pipeline...`;
-  statusBadge.textContent = '[RUNNING]';
-  statusBadge.className = 'text-amber-400 font-semibold animate-pulse';
-
-  consoleEl.innerHTML = '';
-
-  const timestamp = () => new Date().toISOString().substring(11, 23);
-
-  const logs = [
-    `[${timestamp()}] [INGEST] Polling source '${selectedPayload.toUpperCase()}' payload batch...`,
-    `[${timestamp()}] [INGEST] Payload received. Applying UTF-8 normalization and schema validation.`,
-    `[${timestamp()}] [CLEANSE] L1 Duplicate Detection executing: calculating SHA-256 entity hash signatures.`,
-    `[${timestamp()}] [DEDUP] 4 redundant records suppressed. Idempotency key verified.`,
-    `[${timestamp()}] [KAFKA] Emitted validated events to topic 'pitchbook.collection.raw-events'.`,
-    `[${timestamp()}] [TDD-CHECK] Executing Spring Test harness: 34 assertions (JUnit 5 + Mockito).`,
-    `[${timestamp()}] [RECONCILE] Dual-DB write triggered: Relational Postgres + Mongo document audit.`,
-    `[${timestamp()}] [CACHE] Warm LRU in-memory cache for high-frequency analytical queries.`,
-    `[${timestamp()}] [SUCCESS] Batch processed in 9.4ms. Downstream reporting parity: 100%.`
-  ];
-
-  let i = 0;
-  const interval = setInterval(() => {
-    if (i < logs.length) {
-      const logLine = document.createElement('div');
-      if (logs[i].includes('[SUCCESS]')) {
-        logLine.className = 'text-emerald-400 font-bold';
-      } else if (logs[i].includes('[TDD-CHECK]')) {
-        logLine.className = 'text-blue-400';
-      } else if (logs[i].includes('[DEDUP]')) {
-        logLine.className = 'text-amber-400';
-      } else {
-        logLine.className = 'text-gray-300';
-      }
-      logLine.textContent = logs[i];
-      consoleEl.appendChild(logLine);
-      consoleEl.scrollTop = consoleEl.scrollHeight;
-      i++;
-    } else {
-      clearInterval(interval);
-      btn.disabled = false;
-      btn.innerHTML = `<i data-lucide="play" class="w-4 h-4"></i><span>Execute Collection Pipeline</span>`;
-      statusBadge.textContent = '[COMPLETED]';
-      statusBadge.className = 'text-emerald-400 font-semibold';
-      latencyEl.textContent = '9.4 ms';
-      dedupEl.textContent = '99.9%';
-      if (window.lucide) lucide.createIcons();
-    }
-  }, 220);
-}
-
 /**
  * Accordion Toggle for Q&A Hub
  */

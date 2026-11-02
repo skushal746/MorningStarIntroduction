@@ -58,11 +58,7 @@
   border: 1px solid rgba(71, 85, 105, 0.3);
 }
 
-/* Sim source active state */
-.sim-source-btn.active {
-  border-color: rgba(224, 26, 34, 0.8) !important;
-  background-color: rgba(224, 26, 34, 0.15) !important;
-}
+
 
 /* Print Optimization for Resume View */
 @media print {
