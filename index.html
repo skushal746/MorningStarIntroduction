@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kushal Sharma | Introduction to Morningstar Presentation</title>
+  <meta name="description"
+    content="Interactive presentation and portfolio for Kushal Sharma - Senior Software Engineer candidate for PitchBook Collection Applications at Morningstar.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Inter & JetBrains Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            morningstar: {
+              red: '#E01A22',
+              redHover: '#B8141B',
+              dark: '#111317',
+              surface: '#1A1D24',
+              surfaceLight: '#242832',
+              border: '#2E3440',
+              accent: '#3B82F6',
+              gold: '#F59E0B',
+              emerald: '#10B981'
+            },
+            pitchbook: {
+              blue: '#0052CC',
+              darkNavy: '#0A192F',
+              slate: '#1E293B',
+              ice: '#E2E8F0',
+              teal: '#0D9488'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body
+  class="bg-[#0c0e12] text-gray-100 font-sans antialiased selection:bg-red-600 selection:text-white transition-colors duration-200">
+
+  <!-- TOP STATUS & CONTROLS BAR -->
+  <header class="sticky top-0 z-50 bg-[#11141a]/90 backdrop-blur-md border-b border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+
+      <!-- Logo & Candidate Identity -->
+      <div class="flex items-center gap-3">
+        <a href="#hero" class="flex items-center gap-2.5 group">
+          <div
+            class="w-9 h-9 rounded-lg bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-red-900/30 group-hover:scale-105 transition-transform">
+            KS
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-white text-base tracking-tight">Kushal Sharma</span>
+              <span
+                class="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">7+
+                Yrs Exp</span>
+            </div>
+            <p class="text-xs text-gray-400 flex items-center gap-1.5">
+              <span>Target:</span>
+              <span class="text-gray-200 font-medium">Morningstar</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-red-500 inline-block"></span>
+              <span class="text-gray-400">Senior Software Engineer</span>
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Right Utility Actions -->
+      <div class="flex items-center gap-2.5">
+
+        <!-- Fullscreen Toggle -->
+        <button id="toggleFullscreenBtn" title="Toggle Fullscreen (Shortcut: F)"
+          class="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 border border-transparent hover:border-gray-700 transition">
+          <i data-lucide="maximize" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Links Dropdown / Contact -->
+        <div class="h-6 w-px bg-gray-800 mx-1"></div>
+
+        <a href="https://www.linkedin.com/in/skushal746" target="_blank" rel="noopener"
+          class="p-1.5 text-gray-400 hover:text-blue-400 hover:bg-gray-800 rounded-lg transition"
+          title="LinkedIn Profile">
+          <i data-lucide="linkedin" class="w-4 h-4"></i>
+        </a>
+        <a href="https://github.com/skushal746" target="_blank" rel="noopener"
+          class="p-1.5 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition" title="GitHub Profile">
+          <i data-lucide="github" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Presentation Slide Quick Ribbon (Visible in slide mode) -->
+    <div id="slideRibbon"
+      class="bg-gray-950/95 border-t border-gray-800/80 px-4 py-2 flex items-center justify-between text-xs text-gray-400">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-red-400 font-bold" id="slideIndicator">Slide 1 of 7</span>
+        <span class="text-gray-600">|</span>
+        <span id="slideTitleBreadcrumb" class="text-gray-300 font-medium truncate max-w-xs sm:max-w-md">Executive
+          Summary & The PitchBook Fit</span>
+      </div>
+
+      <!-- Slide Navigation Pills -->
+      <div class="flex items-center gap-2">
+        <button id="prevSlideBtn"
+          class="p-1 rounded bg-gray-900 hover:bg-gray-800 text-gray-300 disabled:opacity-30 disabled:cursor-not-allowed border border-gray-800">
+          <i data-lucide="chevron-left" class="w-4 h-4"></i>
+        </button>
+        <button id="nextSlideBtn"
+          class="p-1 rounded bg-gray-900 hover:bg-gray-800 text-gray-300 disabled:opacity-30 disabled:cursor-not-allowed border border-gray-800">
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Indicator Bar -->
+    <div class="w-full bg-gray-900 h-1">
+      <div id="slideProgressBar"
+        class="bg-gradient-to-r from-red-600 via-red-500 to-amber-500 h-1 transition-all duration-300"
+        style="width: 12.5%;"></div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- SLIDE VIEW CONTAINER -->
+    <div id="slideDeckView" class="block min-h-[calc(100vh-12rem)]">
+
+      <!-- ================= SLIDE 1: EXECUTIVE PITCH & HERO ================= -->
+      <section class="slide-card active" data-slide-index="1" data-slide-title="Executive Summary & PitchBook Fit">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
+
+          <div class="lg:col-span-7 space-y-6">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Scaling Enterprise Applications & <span
+                class="bg-gradient-to-r from-red-500 via-amber-400 to-red-400 bg-clip-text text-transparent">AI-Augmented</span>
+              Systems.
+            </h1>
+
+            <p class="text-lg text-gray-300 leading-relaxed">
+              Hello Morningstar Team. I am <span class="text-white font-semibold">Kushal
+                Sharma</span>, a Senior Full-Stack & Distributed Systems Engineer with <span
+                class="text-white font-semibold">7+ years of experience</span> bridging legacy enterprise modernization
+              with high-throughput data pipelines, Spring Boot microservices, and production GenAI.
+            </p>
+
+            <!-- Key Metric Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              <div class="p-3.5 rounded-xl bg-gray-900/80 border border-gray-800">
+                <div class="text-2xl font-bold text-red-400 font-mono">7+ Yrs</div>
+                <div class="text-xs text-gray-400 mt-0.5">Full Stack & Systems</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-gray-900/80 border border-gray-800">
+                <div class="text-2xl font-bold text-amber-400 font-mono">300%</div>
+                <div class="text-xs text-gray-400 mt-0.5">Data Ingestion Boost</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-gray-900/80 border border-gray-800">
+                <div class="text-2xl font-bold text-emerald-400 font-mono">30%</div>
+                <div class="text-xs text-gray-400 mt-0.5">Performance Gain</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-gray-900/80 border border-gray-800">
+                <div class="text-2xl font-bold text-blue-400 font-mono">MS CS</div>
+                <div class="text-xs text-gray-400 mt-0.5">Univ. of Florida</div>
+              </div>
+            </div>
+
+            <!-- Value Proposition Statement -->
+            <div class="p-4 rounded-xl bg-red-950/20 border border-red-500/30 flex items-start gap-3">
+              <i data-lucide="target" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+              <div class="text-sm text-gray-200">
+                <strong class="text-white">Why PitchBook Collection?</strong> PitchBook is the gold standard in private
+                capital data. The Collection Applications demand robust data reconciliation, legacy-to-modern Java/React
+                migration, rock-solid TDD, and pragmatic AI acceleration—the exact intersection of my career.
+              </div>
+            </div>
+
+            <!-- Quick Action Links -->
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button onclick="goToSlide(2)"
+                class="px-5 py-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-medium text-sm flex items-center gap-2 transition shadow-lg shadow-red-900/30">
+                <span>Start Journey Walkthrough</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Infographic of Core Competencies -->
+          <div class="lg:col-span-5">
+            <div
+              class="p-6 rounded-2xl bg-gradient-to-b from-gray-900 via-gray-900/90 to-black border border-gray-800 shadow-2xl space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-gray-800">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                  <span class="text-xs font-mono font-semibold uppercase tracking-wider text-gray-300">Target Tech Stack
+                    & Expertise</span>
+                </div>
+                <span class="text-xs text-gray-500 font-mono">Morningstar Matching Areas</span>
+              </div>
+
+              <!-- Match Items -->
+              <div class="space-y-3">
+                <div class="p-3 rounded-lg bg-gray-800/40 border border-gray-700/50 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 rounded bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold text-xs">
+                      ☕</div>
+                    <div>
+                      <h4 class="text-xs font-semibold text-white">Java, Spring Boot & React</h4>
+                      <p class="text-[11px] text-gray-400">Legacy JSP to modern component microservices</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-lg bg-gray-800/40 border border-gray-700/50 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-400 font-bold text-xs">
+                      🗄️</div>
+                    <div>
+                      <h4 class="text-xs font-semibold text-white">Enterprise Data Flow & DB Design</h4>
+                      <p class="text-[11px] text-gray-400">PostgreSQL, MySQL, MongoDB, Liquibase, ETL/Reconciliation</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-lg bg-gray-800/40 border border-gray-700/50 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 rounded bg-purple-500/10 flex items-center justify-center text-purple-400 font-bold text-xs">
+                      🤖</div>
+                    <div>
+                      <h4 class="text-xs font-semibold text-white">AI-Augmented Engineering</h4>
+                      <p class="text-[11px] text-gray-400">Spring AI, Vector Search, Copilot, RAG pipelines</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-lg bg-gray-800/40 border border-gray-700/50 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-8 h-8 rounded bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold text-xs">
+                      🧪</div>
+                    <div>
+                      <h4 class="text-xs font-semibold text-white">TDD, CI/CD & Reliability</h4>
+                      <p class="text-[11px] text-gray-400">JUnit, Mockito, Jacoco, Jenkins, K8s orchestration</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact & Presence Badges -->
+              <div class="pt-2 flex items-center justify-between text-xs text-gray-400 border-t border-gray-800">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SLIDE 2: WHY MORNINGSTAR & PITCHBOOK ================= -->
+      <section class="slide-card hidden" data-slide-index="2" data-slide-title="Why Morningstar & PitchBook">
+        <div class="space-y-6 pt-2">
+
+          <div class="border-b border-gray-800 pb-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">Strategic Fit & Core
+              Motivation</span>
+            <h2 class="text-3xl font-extrabold text-white mt-1">Why Morningstar & PitchBook Collection Applications?
+            </h2>
+            <p class="text-sm text-gray-400 mt-1 max-w-3xl">
+              PitchBook is driven by data integrity and customer empathy. Here is why this specific role and team are
+              the natural next chapter in my engineering journey.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Pillar 1 -->
+            <div
+              class="p-6 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-red-500/50 transition-all space-y-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400">
+                <i data-lucide="database" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">The Critical Mission of Collection</h3>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                PitchBook’s entire enterprise value rests on the accuracy, timeliness, and depth of its collection
+                platforms. Having architected multi-source financial pipelines and reconciliation engines at <strong
+                  class="text-white">Remora</strong>, <strong class="text-white">Sonos</strong>, and <strong
+                  class="text-white">Verdantis</strong>, I thrive when solving high-stakes data ingestion challenges.
+              </p>
+              <div class="pt-2 text-xs font-mono text-red-400 flex items-center gap-1">
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i> Direct collection pipeline alignment
+              </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div
+              class="p-6 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-amber-500/50 transition-all space-y-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                <i data-lucide="layers" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Enterprise Modernization & Empathy</h3>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                The JD highlights understanding existing systems (Java, JSP, SQL) while modernizing toward component
+                architectures (React), Spring microservices, and modern DBs. I have repeatedly migrated monolithic
+                codebases into scalable services without business disruption, preserving domain value.
+              </p>
+              <div class="pt-2 text-xs font-mono text-amber-400 flex items-center gap-1">
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i> Pragmatic evolutionary architecture
+              </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div
+              class="p-6 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-blue-500/50 transition-all space-y-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">AI-Augmentation as a Multiplier</h3>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                Morningstar emphasizes adopting AI-augmented development (Copilot) and modern frameworks. With a
+                Master’s in CS from UF specializing in ML/data mining and hands-on production experience in <strong
+                  class="text-white">Spring AI & Vector Search</strong>, I can accelerate both internal dev velocity and
+                adapting AI tools and concepts.
+              </p>
+              <div class="pt-2 text-xs font-mono text-blue-400 flex items-center gap-1">
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i> Bridging GenAI with enterprise Java
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Morningstar Cultural Values Alignment Card -->
+          <div
+            class="p-5 rounded-xl bg-gradient-to-r from-gray-900 via-gray-900/90 to-gray-800 border border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="space-y-1">
+              <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                <i data-lucide="heart" class="w-4 h-4 text-red-500"></i>
+                Shared Values: Empathy, Curiosity, and Positive Intent
+              </h4>
+              <p class="text-xs text-gray-300">
+                "We assume positive intent in each other's words and actions, value constructive discussions, and foster
+                a respectful working environment built on integrity."
+              </p>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono shrink-0">
+              <span class="px-3 py-1.5 rounded-lg bg-gray-800 border border-gray-700 text-gray-200">🤝 Mentor to
+                Juniors</span>
+              <span class="px-3 py-1.5 rounded-lg bg-gray-800 border border-gray-700 text-gray-200">🛡️ TDD
+                Discipline</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SLIDE 3: INTERACTIVE CAREER JOURNEY ================= -->
+      <section class="slide-card hidden" data-slide-index="3" data-slide-title="Professional Journey & Experience">
+        <div class="space-y-5 pt-2">
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-800 pb-3">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">Track Record of
+                Impact</span>
+              <h2 class="text-3xl font-extrabold text-white mt-0.5">Professional Experience Timeline</h2>
+            </div>
+            <!-- Timeline Filter Pills -->
+            <div class="flex items-center gap-1.5 overflow-x-auto py-1">
+              <button class="timeline-tab-btn active px-3 py-1 rounded-lg text-xs font-semibold bg-red-600 text-white"
+                data-company="all">All Roles</button>
+              <button
+                class="timeline-tab-btn px-3 py-1 rounded-lg text-xs font-medium bg-gray-900 text-gray-400 hover:text-white border border-gray-800"
+                data-company="remora">Remora</button>
+              <button
+                class="timeline-tab-btn px-3 py-1 rounded-lg text-xs font-medium bg-gray-900 text-gray-400 hover:text-white border border-gray-800"
+                data-company="sonos">Sonos</button>
+              <button
+                class="timeline-tab-btn px-3 py-1 rounded-lg text-xs font-medium bg-gray-900 text-gray-400 hover:text-white border border-gray-800"
+                data-company="itiviti">Itiviti</button>
+              <button
+                class="timeline-tab-btn px-3 py-1 rounded-lg text-xs font-medium bg-gray-900 text-gray-400 hover:text-white border border-gray-800"
+                data-company="qualitykiosk">QualityKiosk</button>
+              <button
+                class="timeline-tab-btn px-3 py-1 rounded-lg text-xs font-medium bg-gray-900 text-gray-400 hover:text-white border border-gray-800"
+                data-company="verdantis">Verdantis</button>
+            </div>
+          </div>
+
+          <!-- Timeline Container -->
+          <div class="space-y-4 max-h-[62vh] overflow-y-auto pr-2 custom-scrollbar">
+
+            <!-- Role 1: Remora -->
+            <div
+              class="timeline-entry p-5 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-gray-700 transition"
+              data-category="remora">
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800/80 pb-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-base font-bold text-white">Back End Developer</h3>
+                    <span
+                      class="text-xs font-semibold px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Remora</span>
+                  </div>
+                  <p class="text-xs text-gray-400 mt-0.5">United States | Cloud Platform & Enterprise Microservices</p>
+                </div>
+                <span
+                  class="text-xs font-mono text-gray-400 bg-gray-950 px-2.5 py-1 rounded border border-gray-800">July
+                  2023 – Dec 2025</span>
+              </div>
+              <div class="mt-3 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="lg:col-span-2 space-y-2 text-sm text-gray-300">
+                  <div class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold">▸</span>
+                    <span><strong>50% Enterprise Client Surge (80 to 120):</strong> Played a pivotal role launching the platform's next major version, delivering continuous feature releases that scaled enterprise clients by 50%.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold">▸</span>
+                    <span><strong>Spring AI & Vector Search:</strong> Built conversational RAG features directly into the Java backend using Spring AI and vector search, improving query response relevance and engagement.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold">▸</span>
+                    <span><strong>Microservices on Kubernetes & Kafka:</strong> Containerized backend and AI workflows on K8s; improved system performance by <strong>30%</strong>.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold">▸</span>
+                    <span><strong>Audit System & JSON Diffing:</strong> Created an audit framework with Spring Security & MongoDB, featuring a visual JSON diffing tool for admin tracking of entity changes.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-amber-400 font-bold">▸</span>
+                    <span><strong>Mentorship & TDD:</strong> Mentored junior developers on Spring Security and Test-Driven Development (JUnit/Mockito).</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-lg bg-gray-950 border border-gray-800 space-y-2">
+                  <span class="text-[11px] font-mono text-gray-400 block uppercase font-semibold">PitchBook Connection</span>
+                  <p class="text-xs text-gray-300">Direct proof of Spring Boot, Kafka, Kubernetes, AI-augmented engineering, platform expansion, and junior peer mentorship.</p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    <span class="badge">Java / Spring Boot</span><span class="badge">Spring AI</span><span class="badge">Kafka</span><span class="badge">K8s</span><span class="badge">TDD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Role 2: Sonos -->
+            <div
+              class="timeline-entry p-5 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-gray-700 transition"
+              data-category="sonos">
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800/80 pb-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-base font-bold text-white">Software Development Engineer (SDE Intern)</h3>
+                    <span
+                      class="text-xs font-semibold px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">Sonos</span>
+                  </div>
+                  <p class="text-xs text-gray-400 mt-0.5">United States | Distributed Systems & Connected Devices</p>
+                </div>
+                <span
+                  class="text-xs font-mono text-gray-400 bg-gray-950 px-2.5 py-1 rounded border border-gray-800">June 2022 – Aug 2022</span>
+              </div>
+              <div class="mt-3 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="lg:col-span-2 space-y-2 text-sm text-gray-300">
+                  <div class="flex items-start gap-2">
+                    <span class="text-blue-400 font-bold">▸</span>
+                    <span><strong>Real-Time Distributed Tracking (Spring Boot & ReactJS):</strong> Designed and implemented real-time distributed tracking systems using Spring Boot, Spring JPA, and ReactJS, improving event visibility by <strong>90%</strong>.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-blue-400 font-bold">▸</span>
+                    <span><strong>Asynchronous Cross-Device Sync:</strong> Leveraged asynchronous programming and schedulers to optimize cross-device synchronization and data consistency.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-blue-400 font-bold">▸</span>
+                    <span><strong>90% Code Coverage via TDD:</strong> Achieved <strong>90% unit test coverage</strong> using TDD (JUnit, Mockito, Jacoco), substantially strengthening system reliability.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-blue-400 font-bold">▸</span>
+                    <span><strong>Multithreaded Peer-to-Peer Processing:</strong> Deployed a multithreaded peer-to-peer system using RMI and AWS EC2 for high concurrency and resilient distributed processing.</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-lg bg-gray-950 border border-gray-800 space-y-2">
+                  <span class="text-[11px] font-mono text-gray-400 block uppercase font-semibold">PitchBook Connection</span>
+                  <p class="text-xs text-gray-300">Demonstrates Spring Boot + ReactJS component architecture, asynchronous scheduling, AWS deployment, and strict 90% TDD discipline.</p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    <span class="badge">Spring Boot</span><span class="badge">ReactJS</span><span class="badge">90% TDD</span><span class="badge">AWS EC2</span><span class="badge">Async Sync</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+                    <span class="badge">Java / Spring Boot</span><span class="badge">Spring AI</span><span
+                      class="badge">Kafka</span><span class="badge">K8s</span><span class="badge">TDD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Role 3: Itiviti -->
+            <div
+              class="timeline-entry p-5 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-gray-700 transition"
+              data-category="itiviti">
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800/80 pb-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-base font-bold text-white">Full Stack Engineer</h3>
+                    <span
+                      class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Itiviti</span>
+                  </div>
+                  <p class="text-xs text-gray-400 mt-0.5">India | Financial Trading Technology & Log Systems</p>
+                </div>
+                <span class="text-xs font-mono text-gray-400 bg-gray-950 px-2.5 py-1 rounded border border-gray-800">Oct
+                  2020 – July 2021</span>
+              </div>
+              <div class="mt-3 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="lg:col-span-2 space-y-2 text-sm text-gray-300">
+                  <div class="flex items-start gap-2">
+                    <span class="text-emerald-400 font-bold">▸</span>
+                    <span><strong>Financial Log Parser & UI:</strong> Built automated daily log parser extracting
+                      financial transaction metrics into persistence layers with a dedicated user UI for filtered metric
+                      access.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-emerald-400 font-bold">▸</span>
+                    <span><strong>MongoDB & LRU Cache Latency Cut:</strong> Designed complex aggregation pipelines and
+                      LRU in-memory caching in Java, slashing log-scheduler query latency by 7%.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-emerald-400 font-bold">▸</span>
+                    <span><strong>70%+ Unit Test Coverage:</strong> Maintained rigorous TDD coverage with JUnit,
+                      Mockito, and Jacoco across mission-critical financial trading modules.</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-lg bg-gray-950 border border-gray-800 space-y-2">
+                  <span class="text-[11px] font-mono text-gray-400 block uppercase font-semibold">PitchBook
+                    Connection</span>
+                  <p class="text-xs text-gray-300">High-frequency financial metrics extraction, caching strategies, and
+                    strict automated testing standards.</p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    <span class="badge">Financial Metrics</span><span class="badge">MongoDB Aggregations</span><span
+                      class="badge">LRU Cache</span><span class="badge">JUnit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Role 4: QualityKiosk -->
+            <div
+              class="timeline-entry p-5 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-gray-700 transition"
+              data-category="qualitykiosk">
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800/80 pb-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-base font-bold text-white">Software Developer</h3>
+                    <span
+                      class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">QualityKiosk
+                      Technologies</span>
+                  </div>
+                  <p class="text-xs text-gray-400 mt-0.5">India | Enterprise Analytics & Security Infrastructure</p>
+                </div>
+                <span
+                  class="text-xs font-mono text-gray-400 bg-gray-950 px-2.5 py-1 rounded border border-gray-800">July
+                  2019 – Feb 2020</span>
+              </div>
+              <div class="mt-3 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="lg:col-span-2 space-y-2 text-sm text-gray-300">
+                  <div class="flex items-start gap-2">
+                    <span class="text-purple-400 font-bold">▸</span>
+                    <span><strong>ELK Stack & Analytics Dashboard:</strong> Scaled Spring Boot backend integrated with
+                      Elasticsearch to aggregate real-time logs and metrics for analytical dashboards.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-purple-400 font-bold">▸</span>
+                    <span><strong>JWT Security & Code Quality Audits:</strong> Implemented JWT token auth protocols; ran
+                      automated CAST software audits to eliminate architectural technical debt.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-purple-400 font-bold">▸</span>
+                    <span><strong>Liquibase DB Management:</strong> Managed evolving relational database schema
+                      migrations using Liquibase and Hibernate ORM.</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-lg bg-gray-950 border border-gray-800 space-y-2">
+                  <span class="text-[11px] font-mono text-gray-400 block uppercase font-semibold">PitchBook
+                    Connection</span>
+                  <p class="text-xs text-gray-300">Database migration discipline (Liquibase), observability (ELK), and
+                    enterprise security.</p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    <span class="badge">Spring Boot</span><span class="badge">Liquibase</span><span class="badge">ELK
+                      Stack</span><span class="badge">CAST Audit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Role 5: Verdantis -->
+            <div
+              class="timeline-entry p-5 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-gray-700 transition"
+              data-category="verdantis">
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800/80 pb-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-base font-bold text-white">Software Developer</h3>
+                    <span
+                      class="text-xs font-semibold px-2 py-0.5 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">Verdantis
+                      Tech</span>
+                  </div>
+                  <p class="text-xs text-gray-400 mt-0.5">India | Enterprise Data Integration & Master Data Management
+                  </p>
+                </div>
+                <span
+                  class="text-xs font-mono text-gray-400 bg-gray-950 px-2.5 py-1 rounded border border-gray-800">July
+                  2017 – June 2019</span>
+              </div>
+              <div class="mt-3 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="lg:col-span-2 space-y-2 text-sm text-gray-300">
+                  <div class="flex items-start gap-2">
+                    <span class="text-teal-400 font-bold">▸</span>
+                    <span><strong>300% Ingestion Efficiency:</strong> Architected secure integration layer with Java,
+                      JSch, and SFTP/Web Services processing ZIP/XML bulk payloads.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-teal-400 font-bold">▸</span>
+                    <span><strong>Automated Duplicate Detection:</strong> Developed Java + MySQL algorithm to automate
+                      L1 duplicate material detection, eradicating manual data entry errors.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <span class="text-teal-400 font-bold">▸</span>
+                    <span><strong>Internationalization (UTF-8):</strong> Re-architected character encoding across
+                      database tables and web endpoints to reliably support global multilingual data.</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-lg bg-gray-950 border border-gray-800 space-y-2">
+                  <span class="text-[11px] font-mono text-gray-400 block uppercase font-semibold">PitchBook
+                    Connection</span>
+                  <p class="text-xs text-gray-300">Handling messy third-party feeds, deduplicating records, and bulk
+                    file processing—core to PitchBook Collection.</p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    <span class="badge">Java SFTP</span><span class="badge">XML/ZIP Payloads</span><span
+                      class="badge">Deduplication</span><span class="badge">MySQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SLIDE 4: PITCHBOOK JD ALIGNMENT MATRIX ================= -->
+      <section class="slide-card hidden" data-slide-index="4" data-slide-title="Job Description Alignment Matrix">
+        <div class="space-y-4 pt-2">
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800 pb-3">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">Side-by-Side
+                Validation</span>
+              <h2 class="text-3xl font-extrabold text-white mt-0.5">PitchBook Job Requirements vs. Kushal's Evidence
+              </h2>
+            </div>
+            <div class="text-xs text-gray-400 font-mono">
+              <span class="text-emerald-400 font-bold">100% Core Requirements Covered</span>
+            </div>
+          </div>
+
+          <!-- Alignment Table Grid -->
+          <div class="overflow-x-auto max-h-[62vh] pr-1 custom-scrollbar">
+            <table class="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr
+                  class="border-b border-gray-800 bg-gray-950/90 text-gray-400 font-mono text-[11px] uppercase tracking-wider">
+                  <th class="py-3 px-3 w-1/4">PitchBook JD Requirement</th>
+                  <th class="py-3 px-3 w-1/6">Level</th>
+                  <th class="py-3 px-3 w-7/12">My Concrete Experience & Production Deliverables</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-800/80 text-gray-300">
+
+                <!-- Row 1 -->
+                <tr class="hover:bg-gray-900/40 transition">
+                  <td class="py-3 px-3 font-semibold text-white">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span>Java, Spring, Spring Boot & React</span>
+                    </div>
+                    <span class="text-[11px] text-gray-400 font-normal">Legacy to component architecture</span>
+                  </td>
+                  <td class="py-3 px-3 font-mono text-emerald-400 font-semibold">7+ Years</td>
+                  <td class="py-3 px-3 text-xs leading-relaxed">
+                    Extensive experience building Spring Boot microservices at <strong>Remora</strong> &
+                    <strong>QualityKiosk</strong>; React frontend integration at <strong>Sonos</strong>; modernizing
+                    monolithic architectures into modular REST/Kafka systems.
+                  </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr class="hover:bg-gray-900/40 transition">
+                  <td class="py-3 px-3 font-semibold text-white">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span>Data Flow, DB Design & Migration</span>
+                    </div>
+                    <span class="text-[11px] text-gray-400 font-normal">Moving to next platform</span>
+                  </td>
+                  <td class="py-3 px-3 font-mono text-emerald-400 font-semibold">Expert</td>
+                  <td class="py-3 px-3 text-xs leading-relaxed">
+                    Architected cross-device distributed synchronization at <strong>Sonos</strong>; scaled microservice event streams at <strong>Remora</strong>; migrated schemas with
+                    <strong>Liquibase</strong> at QualityKiosk; built high-efficiency SFTP/XML data pipelines at
+                    <strong>Verdantis</strong>.
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr class="hover:bg-gray-900/40 transition">
+                  <td class="py-3 px-3 font-semibold text-white">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span>AI-Augmented Development</span>
+                    </div>
+                    <span class="text-[11px] text-gray-400 font-normal">Copilot & AI in engineering</span>
+                  </td>
+                  <td class="py-3 px-3 font-mono text-purple-400 font-semibold">Production</td>
+                  <td class="py-3 px-3 text-xs leading-relaxed">
+                    Daily user of GitHub Copilot & Cursor for test generation and refactoring; deployed production
+                    <strong>Spring AI</strong> RAG chatbot at <strong>Remora</strong>; UF Master’s research in deep
+                    learning/data mining under Prof. Ruogu Fang.
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr class="hover:bg-gray-900/40 transition">
+                  <td class="py-3 px-3 font-semibold text-white">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span>Databases: SQL & NoSQL</span>
+                    </div>
+                    <span class="text-[11px] text-gray-400 font-normal">PostgreSQL, MySQL, Mongo, Dynamo</span>
+                  </td>
+                  <td class="py-3 px-3 font-mono text-emerald-400 font-semibold">Advanced</td>
+                  <td class="py-3 px-3 text-xs leading-relaxed">
+                    Advanced MongoDB aggregation pipelines and LRU caching (7% latency reduction) at
+                    <strong>Itiviti</strong>; MySQL performance indexing & UTF-8 formatting at
+                    <strong>Verdantis</strong>; Cassandra & PostgreSQL schema design.
+                  </td>
+                </tr>
+
+                <!-- Row 5 -->
+                <tr class="hover:bg-gray-900/40 transition">
+                  <td class="py-3 px-3 font-semibold text-white">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span>Test-Driven Development (TDD)</span>
+                    </div>
+                    <span class="text-[11px] text-gray-400 font-normal">Agile, CI/CD, Unit Testing</span>
+                  </td>
+                  <td class="py-3 px-3 font-mono text-emerald-400 font-semibold">Discipline</td>
+                  <td class="py-3 px-3 text-xs leading-relaxed">
+                    Maintained <strong>90% code coverage</strong> at Sonos and <strong>70%+ coverage</strong> at Itiviti
+                    using JUnit, Mockito, and Jacoco; integrated automated quality gates into Jenkins CI pipelines.
+                  </td>
+                </tr>
+
+                <!-- Row 6 -->
+                <tr class="hover:bg-gray-900/40 transition">
+                  <td class="py-3 px-3 font-semibold text-white">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span>Cloud & Kubernetes (K8s)</span>
+                    </div>
+                    <span class="text-[11px] text-gray-400 font-normal">AWS / GCP / Orchestration</span>
+                  </td>
+                  <td class="py-3 px-3 font-mono text-blue-400 font-semibold">Production</td>
+                  <td class="py-3 px-3 text-xs leading-relaxed">
+                    Containerized backend and AI workflows on Kubernetes at <strong>Remora</strong> (30% system
+                    performance improvement); distributed AWS EC2/S3/SQS deployment at <strong>Sonos</strong>.
+                  </td>
+                </tr>
+
+                <!-- Row 7 -->
+                <tr class="hover:bg-gray-900/40 transition">
+                  <td class="py-3 px-3 font-semibold text-white">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span>Technical Guidance & Mentoring</span>
+                    </div>
+                    <span class="text-[11px] text-gray-400 font-normal">Guiding junior peers & cross-functional</span>
+                  </td>
+                  <td class="py-3 px-3 font-mono text-amber-400 font-semibold">Demonstrated</td>
+                  <td class="py-3 px-3 text-xs leading-relaxed">
+                    Mentored junior engineers at <strong>Remora</strong> in Spring Security & TDD code quality; Graduate
+                    Teaching Assistant at <strong>University of Florida</strong> mentoring students in machine learning
+                    algorithms.
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Bottom Summary Badge -->
+          <div
+            class="p-3 rounded-lg bg-gray-900/60 border border-gray-800 flex items-center justify-between text-xs text-gray-400">
+            <span class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+              Ready to hit the ground running on day one with PitchBook's collection pipelines and tech stack.
+            </span>
+            <button onclick="goToSlide(5)"
+              class="text-red-400 hover:text-red-300 font-semibold flex items-center gap-1">
+              <span>Explore Architecture Case Studies</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SLIDE 5: ARCHITECTURE CASE STUDIES ================= -->
+      <section class="slide-card hidden" data-slide-index="5" data-slide-title="Architecture Deep-Dives">
+        <div class="space-y-4 pt-2">
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800 pb-3">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">Systems Engineering
+                Deep-Dive</span>
+              <h2 class="text-3xl font-extrabold text-white mt-0.5">Production Architecture Case Studies</h2>
+            </div>
+            <!-- Architecture Selector -->
+            <div class="flex items-center gap-1.5">
+              <button id="caseStudyBtn1"
+                class="case-study-btn active px-3 py-1 rounded-lg text-xs font-semibold bg-red-600 text-white"
+                onclick="switchCaseStudy(1)">1. Enterprise Platform Scaling (Remora)</button>
+              <button id="caseStudyBtn2"
+                class="case-study-btn px-3 py-1 rounded-lg text-xs font-medium bg-gray-900 text-gray-400 hover:text-white border border-gray-800"
+                onclick="switchCaseStudy(2)">2. Enterprise Spring AI & RAG</button>
+              <button id="caseStudyBtn3"
+                class="case-study-btn px-3 py-1 rounded-lg text-xs font-medium bg-gray-900 text-gray-400 hover:text-white border border-gray-800"
+                onclick="switchCaseStudy(3)">3. Collection & Ingestion Pipeline</button>
+            </div>
+          </div>
+
+          <!-- CASE STUDY 1: Remora Platform Scaling & 50% Client Surge (80 to 120 Clients) -->
+          <div id="caseStudy1" class="case-study-content block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+
+              <div class="lg:col-span-5 space-y-3">
+                <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2">
+                  <span class="text-xs font-mono text-red-400 font-semibold uppercase">The Scaling Challenge</span>
+                  <h3 class="text-base font-bold text-white">Scaling Platform for 50% Client Surge</h3>
+                  <p class="text-xs text-gray-300 leading-relaxed">
+                    At Remora, rapid business expansion required rolling out the next major platform version to handle an aggressive <strong>50% surge in enterprise clients (growing from 80 to 120)</strong> without latency degradation or operational downtime.
+                  </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2">
+                  <span class="text-xs font-mono text-emerald-400 font-semibold uppercase">My Solution</span>
+                  <h3 class="text-base font-bold text-white">Spring Boot Microservices & K8s Orchestration</h3>
+                  <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+                    <li>Architected resilient REST APIs and microservices using <strong>Java, Spring Boot, and Kafka</strong>.</li>
+                    <li>Containerized core backend services and AI workflows on <strong>Kubernetes (K8s)</strong>.</li>
+                    <li>Integrated OAuth2 authentication (Google/Apple) and persistent change auditing with MongoDB.</li>
+                    <li>Delivered continuous, incremental releases with automated TDD pipelines.</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 flex items-center justify-between text-xs">
+                  <span class="text-emerald-300 font-semibold">Outcome: 50% Enterprise Client Growth (80 &rarr; 120)</span>
+                  <span class="font-mono text-emerald-400">+30% K8s Perf Gain</span>
+                </div>
+              </div>
+
+              <!-- Visual Flow Diagram: Remora Enterprise Platform Architecture -->
+              <div
+                class="lg:col-span-7 p-5 rounded-xl bg-gray-950 border border-gray-800 flex flex-col justify-between space-y-4">
+                <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+                  <span class="text-xs font-mono text-gray-400 flex items-center gap-1.5">
+                    <i data-lucide="server" class="w-3.5 h-3.5 text-red-400"></i>
+                    Remora Enterprise Platform Architecture (80 &rarr; 120 Clients)
+                  </span>
+                  <span class="text-[10px] font-mono text-emerald-400">Kubernetes Cluster</span>
+                </div>
+
+                <!-- Architecture Flow -->
+                <div class="space-y-3 py-2">
+
+                  <!-- Step 1: Ingress & Traffic -->
+                  <div class="p-3 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="w-7 h-7 rounded bg-red-500/20 text-red-400 flex items-center justify-center text-xs font-bold">
+                        1</div>
+                      <div>
+                        <div class="text-xs font-bold text-white">Client Requests & OAuth2 Ingress</div>
+                        <div class="text-[10px] text-gray-400">120 Enterprise Clients • Spring Security OAuth2 (Google & Apple) • Rate Limiting</div>
+                      </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-gray-400 px-2 py-0.5 rounded bg-gray-800">+50% Load Handled</span>
+                  </div>
+
+                  <div class="flex justify-center -my-1 text-gray-600">
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                  </div>
+
+                  <!-- Step 2: Microservices & Kafka -->
+                  <div class="p-3 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="w-7 h-7 rounded bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold">
+                        2</div>
+                      <div>
+                        <div class="text-xs font-bold text-white">Spring Boot Microservices & Kafka Event Mesh</div>
+                        <div class="text-[10px] text-gray-400">Decoupled Domain Services • Kubernetes Containerized Pods • Kafka Async Pipelines</div>
+                      </div>
+                    </div>
+                    <span
+                      class="text-[10px] font-mono text-amber-400 px-2 py-0.5 rounded bg-amber-950/40 border border-amber-800">30% Speed Boost</span>
+                  </div>
+
+                  <div class="flex justify-center -my-1 text-gray-600">
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                  </div>
+
+                  <!-- Step 3: Multi-tenant Persistence & Audit -->
+                  <div class="p-3 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="w-7 h-7 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold">
+                        3</div>
+                      <div>
+                        <div class="text-xs font-bold text-white">Dual Persistence & Change Audit Trail</div>
+                        <div class="text-[10px] text-gray-400">PostgreSQL (Core Relational) + MongoDB (Point-in-Time Audit & JSON Diff)</div>
+                      </div>
+                    </div>
+                    <span
+                      class="text-[10px] font-mono text-emerald-400 px-2 py-0.5 rounded bg-emerald-950/40 border border-emerald-800">Zero Downtime</span>
+                  </div>
+
+                </div>
+
+                <div class="text-[11px] text-gray-400 pt-2 border-t border-gray-800 flex items-center justify-between">
+                  <span>Stack: Java, Spring Boot, Kafka, Kubernetes, Spring Security, MongoDB, PostgreSQL</span>
+                  <button onclick="goToSlide(6)"
+                    class="text-red-400 hover:underline flex items-center gap-1 font-semibold">
+                    <span>View Education & Projects</span>
+                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CASE STUDY 2: Spring AI & RAG -->
+          <div id="caseStudy2" class="case-study-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+              <div class="lg:col-span-5 space-y-3">
+                <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2">
+                  <span class="text-xs font-mono text-purple-400 font-semibold uppercase">The Opportunity</span>
+                  <h3 class="text-base font-bold text-white">Production AI in Java Backend</h3>
+                  <p class="text-xs text-gray-300 leading-relaxed">
+                    At Remora, customer queries over unstructured vehicle and enterprise documentation were slow. We
+                    needed a secure, enterprise-grade RAG chatbot embedded directly into the Spring microservices
+                    architecture rather than an isolated toy script.
+                  </p>
+                </div>
+                <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2">
+                  <span class="text-xs font-mono text-blue-400 font-semibold uppercase">Implementation</span>
+                  <h3 class="text-base font-bold text-white">Spring AI + Vector Search Pipeline</h3>
+                  <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+                    <li>Embedded <strong>Spring AI</strong> with pgvector/Milvus vector embeddings in the Java backend.
+                    </li>
+                    <li>Orchestrated cross-functional collaboration between data science and product teams.</li>
+                    <li>Containerized and orchestrated inference & backend microservices on <strong>Kubernetes
+                        (K8s)</strong>.</li>
+                  </ul>
+                </div>
+                <div
+                  class="p-3.5 rounded-xl bg-purple-950/20 border border-purple-500/30 text-xs text-purple-300 font-semibold">
+                  Outcome: Sub-second conversational responses with verified grounding & 30% speed boost on K8s.
+                </div>
+              </div>
+
+              <!-- Tech Spec Panel -->
+              <div class="lg:col-span-7 p-5 rounded-xl bg-gray-950 border border-gray-800 space-y-4">
+                <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+                  <span class="text-xs font-mono text-gray-400">Spring AI Architecture Flow</span>
+                  <span class="text-[10px] font-mono text-purple-400">Remora Case Study</span>
+                </div>
+                <div
+                  class="font-mono text-xs bg-gray-900 p-4 rounded-lg border border-gray-800 space-y-2 text-gray-300">
+                  <div class="text-gray-500">// Spring Boot Controller + Spring AI ChatClient</div>
+                  <div>User Query &rarr; <span class="text-amber-400">EmbeddingModel.embed()</span></div>
+                  <div>&rarr; Vector DB Similarity Search <span class="text-emerald-400">(Top-K Context)</span></div>
+                  <div>&rarr; Prompt Template with System Grounding Constraints</div>
+                  <div>&rarr; LLM Completion &rarr; Streamed to React Frontend via SSE</div>
+                </div>
+                <div class="p-3 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">
+                  <strong class="text-white">Relevance for PitchBook:</strong> Allows financial analysts to query
+                  complex company filings, transaction documents, and collection metadata in natural language with
+                  citations.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CASE STUDY 3: Data Collection, Ingestion & Deduplication Pipeline (Shifted from #1 to #3) -->
+          <div id="caseStudy3" class="case-study-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+
+              <div class="lg:col-span-5 space-y-3">
+                <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2">
+                  <span class="text-xs font-mono text-red-400 font-semibold uppercase">The Ingestion Challenge</span>
+                  <h3 class="text-base font-bold text-white">Reconciling Disparate High-Volume Feeds</h3>
+                  <p class="text-xs text-gray-300 leading-relaxed">
+                    In enterprise collection systems, multi-source external feeds arrive in diverse formats (SFTP ZIP/XML, API payloads, relational extracts). Dirty inputs, duplicate records, and encoding discrepancies can compromise downstream financial reporting.
+                  </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2">
+                  <span class="text-xs font-mono text-emerald-400 font-semibold uppercase">My Solution</span>
+                  <h3 class="text-base font-bold text-white">Automated Ingestion, Deduplication & Validation</h3>
+                  <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+                    <li>Built asynchronous ingestion layers decoupling payload intake from parsing via message queues.</li>
+                    <li>Developed automated L1 duplicate entity detection, eliminating manual verification overhead.</li>
+                    <li>Enforced UTF-8 standardization across database tables and REST service endpoints.</li>
+                    <li>Verified dual-persistence data integrity and zero silent drift using automated reconciliation.</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 flex items-center justify-between text-xs">
+                  <span class="text-emerald-300 font-semibold">Outcome: Clean Automated Data Collection</span>
+                  <span class="font-mono text-emerald-400">Zero Silent Parity Drift</span>
+                </div>
+              </div>
+
+              <!-- Visual Flow Diagram -->
+              <div
+                class="lg:col-span-7 p-5 rounded-xl bg-gray-950 border border-gray-800 flex flex-col justify-between space-y-4">
+                <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+                  <span class="text-xs font-mono text-gray-400 flex items-center gap-1.5">
+                    <i data-lucide="git-pull-request" class="w-3.5 h-3.5 text-red-400"></i>
+                    PitchBook Collection Architecture Blueprint
+                  </span>
+                  <span class="text-[10px] font-mono text-gray-500">Event-Driven / Idempotent</span>
+                </div>
+
+                <!-- Interactive CSS Architecture Flow -->
+                <div class="space-y-3 py-2">
+
+                  <!-- Step 1: Ingestion Sources -->
+                  <div class="p-3 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="w-7 h-7 rounded bg-red-500/20 text-red-400 flex items-center justify-center text-xs font-bold">
+                        1</div>
+                      <div>
+                        <div class="text-xs font-bold text-white">Collection Ingestion Layer</div>
+                        <div class="text-[10px] text-gray-400">SFTP / REST Bulk Upload / Third-Party Feeds (XML, JSON, Excel)</div>
+                      </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-gray-400 px-2 py-0.5 rounded bg-gray-800">Dynamic Payloads</span>
+                  </div>
+
+                  <div class="flex justify-center -my-1 text-gray-600">
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                  </div>
+
+                  <!-- Step 2: Processing & Deduplication -->
+                  <div class="p-3 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="w-7 h-7 rounded bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold">
+                        2</div>
+                      <div>
+                        <div class="text-xs font-bold text-white">Validation & L1 Deduplication Engine</div>
+                        <div class="text-[10px] text-gray-400">UTF-8 Normalization, Schema Validator, Spring Validation, Kafka Queue</div>
+                      </div>
+                    </div>
+                    <span
+                      class="text-[10px] font-mono text-amber-400 px-2 py-0.5 rounded bg-amber-950/40 border border-amber-800">TDD Verified</span>
+                  </div>
+
+                  <div class="flex justify-center -my-1 text-gray-600">
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                  </div>
+
+                  <!-- Step 3: Reconciliation & Persistence -->
+                  <div class="p-3 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div
+                        class="w-7 h-7 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold">
+                        3</div>
+                      <div>
+                        <div class="text-xs font-bold text-white">Persistence & Dual-DB Reconciliation</div>
+                        <div class="text-[10px] text-gray-400">PostgreSQL (Relational Core) + MongoDB (Audit & JSON Payloads)</div>
+                      </div>
+                    </div>
+                    <span
+                      class="text-[10px] font-mono text-emerald-400 px-2 py-0.5 rounded bg-emerald-950/40 border border-emerald-800">100% Parity</span>
+                  </div>
+
+                </div>
+
+                <div class="text-[11px] text-gray-400 pt-2 border-t border-gray-800 flex items-center justify-between">
+                  <span>Tech: Spring Boot, Kafka, Java, MySQL/Postgres, MongoDB, Liquibase</span>
+                  <button onclick="goToSlide(6)"
+                    class="text-red-400 hover:underline flex items-center gap-1 font-semibold">
+                    <span>View Education & Projects</span>
+                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SLIDE 6: EDUCATION, RESEARCH & PROJECTS ================= -->
+      <section class="slide-card hidden" data-slide-index="6" data-slide-title="Education & Technical Research">
+        <div class="space-y-4 pt-2">
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800 pb-3">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">Academic Foundation &
+                Computer Science Rigor</span>
+              <h2 class="text-3xl font-extrabold text-white mt-0.5">Education & Key Technical Projects</h2>
+            </div>
+            <div class="text-xs text-gray-400 font-mono">
+              University of Florida & University of Mumbai
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- Left Column: Formal Degrees & Teaching Experience -->
+            <div class="lg:col-span-5 space-y-4">
+
+              <!-- Degree 1 -->
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono text-red-400 font-semibold">May 2023</span>
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-red-950 text-red-300 border border-red-900">United
+                    States</span>
+                </div>
+                <h3 class="text-base font-bold text-white">Master of Science in Computer Science</h3>
+                <p class="text-xs text-gray-300 font-semibold">University of Florida (Gainesville, FL)</p>
+                <p class="text-xs text-gray-400">
+                  Focus: Distributed Systems, Advanced Data Structures & Algorithms, Machine Learning, Cloud
+                  Architecture.
+                </p>
+              </div>
+
+              <!-- TA Experience -->
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono text-amber-400 font-semibold">Jan 2023 – May 2023</span>
+                  <span
+                    class="text-[11px] px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-900">Academic
+                    Leadership</span>
+                </div>
+                <h3 class="text-base font-bold text-white">Graduate Teaching Assistant</h3>
+                <p class="text-xs text-gray-300 font-semibold">University of Florida • Under Prof. Ruogu Fang</p>
+                <p class="text-xs text-gray-400">
+                  Mentored graduate students in implementation of core machine learning algorithms and guided technical
+                  data mining projects. Honed ability to explain complex abstractions and review code rigorously.
+                </p>
+              </div>
+
+              <!-- Degree 2 -->
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono text-gray-400 font-semibold">May 2017</span>
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-gray-800 text-gray-300">India</span>
+                </div>
+                <h3 class="text-base font-bold text-white">Bachelor of Engineering in Computer Engineering</h3>
+                <p class="text-xs text-gray-300 font-semibold">University of Mumbai</p>
+                <p class="text-xs text-gray-400">
+                  Strong grounding in Object-Oriented Programming, Database Management Systems, Operating Systems, and
+                  Network Protocols.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Standout Projects -->
+            <div class="lg:col-span-7 space-y-3">
+              <span class="text-xs font-mono text-gray-400 uppercase font-semibold block">Highlighted Systems
+                Projects</span>
+
+              <!-- Project 1 -->
+              <div class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-white">Enterprise RAG & LLM Fine-Tuning Engine</h4>
+                  <span
+                    class="text-[10px] font-mono text-purple-400 bg-purple-950/40 px-2 py-0.5 rounded border border-purple-800">PyTorch
+                    • Spring Boot</span>
+                </div>
+                <p class="text-xs text-gray-300">
+                  Architected a scalable enterprise AI platform combining custom PyTorch LLM fine-tuning pipelines with
+                  high-throughput Spring Boot microservices for retrieval-augmented generation.
+                </p>
+              </div>
+
+              <!-- Project 2 -->
+              <div class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-white">Full Java Compiler & Bytecode Generator</h4>
+                  <span
+                    class="text-[10px] font-mono text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-800">Java
+                    • JUnit</span>
+                </div>
+                <p class="text-xs text-gray-300">
+                  Built a complete lexer, parser, Abstract Syntax Tree (AST), Type Check Visitor, and JVM Bytecode
+                  Generator using Java, validated by an exhaustive JUnit test suite. Demonstrates deep understanding of
+                  compilation, language design, and memory.
+                </p>
+              </div>
+
+              <!-- Project 3 -->
+              <div class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-white">Fault-Tolerant Inventory System with Caching</h4>
+                  <span
+                    class="text-[10px] font-mono text-blue-400 bg-blue-950/40 px-2 py-0.5 rounded border border-blue-800">Microservices
+                    • LRU Caching</span>
+                </div>
+                <p class="text-xs text-gray-300">
+                  Engineered distributed microservice architecture featuring node replication and in-memory LRU caching
+                  to sustain high concurrency and survive node failovers.
+                </p>
+              </div>
+
+              <!-- Project 4 -->
+              <div class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-white">Actor Model Distributed System & P2P</h4>
+                  <span
+                    class="text-[10px] font-mono text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-800">F#
+                    • Concurrency</span>
+                </div>
+                <p class="text-xs text-gray-300">
+                  Implemented high-concurrency Actor Model message passing for distributed fault tolerance, verified via
+                  automated stress tests.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SLIDE 7: PHILOSOPHY, Q&A & INTERVIEW HUB ================= -->
+      <section class="slide-card hidden" data-slide-index="7" data-slide-title="Engineering Philosophy & Discussion">
+        <div class="space-y-4 pt-2">
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800 pb-3">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">How I Work &
+                Lead</span>
+              <h2 class="text-3xl font-extrabold text-white mt-0.5">Engineering Philosophy & Q&A Discussion Hub</h2>
+            </div>
+            <div class="text-xs text-gray-400 font-mono">
+              Ready for Deep Technical Discussion
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- Left: Core Engineering Principles -->
+            <div class="lg:col-span-5 space-y-3">
+              <span class="text-xs font-mono text-gray-400 uppercase font-semibold block">Three Guiding
+                Principles</span>
+
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-1.5">
+                <div class="flex items-center gap-2 text-white font-bold text-sm">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+                  <span>1. Test-Driven Development (TDD) as Armor</span>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  Refactoring legacy code without tests is reckless. Writing tests first (JUnit, Mockito) documents
+                  behavior, prevents regression, and gives the team confidence to modernize aggressively.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-1.5">
+                <div class="flex items-center gap-2 text-white font-bold text-sm">
+                  <i data-lucide="git-branch" class="w-4 h-4 text-blue-400"></i>
+                  <span>2. Strangler Fig Modernization Pattern</span>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  Rather than risky big-bang rewrites, I incrementally carve out services behind facades or reverse
+                  proxies. This ensures uninterrupted collection while advancing to Spring Boot and React.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 space-y-1.5">
+                <div class="flex items-center gap-2 text-white font-bold text-sm">
+                  <i data-lucide="users" class="w-4 h-4 text-red-400"></i>
+                  <span>3. Mentorship with Positive Intent</span>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  Great software is built by united teams. In code reviews, I foster constructive inquiry, celebrate
+                  good ideas, and mentor junior engineers on security and design fundamentals.
+                </p>
+              </div>
+
+              <!-- Direct Contact Box -->
+              <div
+                class="p-4 rounded-xl bg-gradient-to-br from-red-950/40 to-gray-950 border border-red-500/30 space-y-2">
+                <div class="text-xs font-mono font-bold text-white uppercase">Connect with Kushal Sharma</div>
+                <div class="text-xs text-gray-300 space-y-1 font-mono">
+                  <div>📧 skushal746@gmail.com</div>
+                  <div>📞 (+91) 8767716841</div>
+                  <div>🌐 linkedin.com/in/skushal746</div>
+                  <div>💻 github.com/skushal746</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Q&A Discussion Cards for Interviewers -->
+            <div class="lg:col-span-7 space-y-3">
+              <span class="text-xs font-mono text-gray-400 uppercase font-semibold block">Click to Expand Common
+                Technical Questions</span>
+
+              <!-- Accordion Question 1 -->
+              <div
+                class="qa-item p-4 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-gray-700 transition cursor-pointer"
+                onclick="toggleQA(this)">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                    <span class="text-red-400 font-mono">Q1:</span>
+                    <span>How would you modernize legacy Java/JSP applications in PitchBook Collection?</span>
+                  </h4>
+                  <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 transition-transform"></i>
+                </div>
+                <div
+                  class="qa-answer hidden mt-3 pt-3 border-t border-gray-800 text-xs text-gray-300 leading-relaxed space-y-2">
+                  <p>1. <strong>Baseline & Characterization Tests:</strong> Write JUnit integration tests against
+                    existing endpoints to capture current inputs and outputs faithfully.</p>
+                  <p>2. <strong>Decompose Views:</strong> Replace server-rendered JSP views with RESTful Spring Boot
+                    APIs and clean React components.</p>
+                  <p>3. <strong>Database Schema Migration:</strong> Use Liquibase or Flyway to version-control schema
+                    evolutions without manual DB drift.</p>
+                  <p>4. <strong>Containerize:</strong> Package into Docker containers on Kubernetes for automated
+                    deployment.</p>
+                </div>
+              </div>
+
+              <!-- Accordion Question 2 -->
+              <div
+                class="qa-item p-4 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-gray-700 transition cursor-pointer"
+                onclick="toggleQA(this)">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                    <span class="text-amber-400 font-mono">Q2:</span>
+                    <span>How do you handle data reconciliation across multiple asynchronous databases?</span>
+                  </h4>
+                  <div class="qa-chevron"><i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i></div>
+                </div>
+                <div
+                  class="qa-answer hidden mt-3 pt-3 border-t border-gray-800 text-xs text-gray-300 leading-relaxed space-y-2">
+                  <p>In distributed microservice environments at Remora and Sonos, I approached this by implementing idempotent event streaming and automated reconciliation. We extracted checksum hashes and canonical keys across data stores, calculated delta differences via streaming batch queries, and logged mismatched entities with automated alert triggers. This guaranteed zero silent data loss.</p>
+                </div>
+              </div>
+
+              <!-- Accordion Question 3 -->
+              <div
+                class="qa-item p-4 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-gray-700 transition cursor-pointer"
+                onclick="toggleQA(this)">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                    <span class="text-purple-400 font-mono">Q3:</span>
+                    <span>How do you apply AI-augmented development practically in day-to-day engineering?</span>
+                  </h4>
+                  <div class="qa-chevron"><i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i></div>
+                </div>
+                <div
+                  class="qa-answer hidden mt-3 pt-3 border-t border-gray-800 text-xs text-gray-300 leading-relaxed space-y-2">
+                  <p>I use AI in two distinct dimensions:</p>
+                  <p>• <strong>Developer Velocity:</strong> Using Copilot for rapid test fixture boilerplate, regex/SQL
+                    optimization, and migration scaffolding—always pairing it with strict human review and TDD
+                    validation.</p>
+                  <p>• <strong>Application Features:</strong> Utilizing Spring AI to build production RAG pipelines,
+                    semantic document matching, and automated metadata classification.</p>
+                </div>
+              </div>
+
+              <!-- Accordion Question 4 -->
+              <div
+                class="qa-item p-4 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-gray-700 transition cursor-pointer"
+                onclick="toggleQA(this)">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                    <span class="text-blue-400 font-mono">Q4:</span>
+                    <span>How do you maintain high test coverage while meeting tight delivery deadlines?</span>
+                  </h4>
+                  <div class="qa-chevron"><i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i></div>
+                </div>
+                <div
+                  class="qa-answer hidden mt-3 pt-3 border-t border-gray-800 text-xs text-gray-300 leading-relaxed space-y-2">
+                  <p>TDD actually saves time by preventing debugging cycles down the line. At Sonos (90% coverage) and
+                    Itiviti (70%+), we focused testing on critical business logic, edge cases, and boundary mutations.
+                    We automated test execution in CI so bad code could never enter the main branch.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div><!-- /slideDeckView -->
+
+
+  </main>
+
+  <!-- PRESENTER NOTES DRAWER (Collapsible at bottom) -->
+  <aside id="presenterNotesDrawer"
+    class="hidden fixed bottom-0 left-0 right-0 z-40 bg-[#161a22]/95 backdrop-blur-lg border-t-2 border-red-500 shadow-2xl transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex items-center justify-between pb-2 border-b border-gray-800">
+        <div class="flex items-center gap-2">
+          <i data-lucide="speech" class="w-4 h-4 text-yellow-400"></i>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-white">Presenter Talking Points & Notes
+            for Kushal</span>
+          <span id="notesSlideNumber" class="text-xs font-mono text-red-400">(Slide 1)</span>
+        </div>
+        <button id="closeNotesBtn" class="text-gray-400 hover:text-white p-1 rounded hover:bg-gray-800">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div id="presenterNotesContent"
+        class="py-3 text-xs sm:text-sm text-gray-300 space-y-2 max-h-40 overflow-y-auto custom-scrollbar font-sans">
+        <!-- Dynamically populated based on active slide -->
+      </div>
+    </div>
+  </aside>
+
+  <!-- FOOTER / KEYBOARD SHORTCUT HELPER -->
+  <footer class="border-t border-gray-900 bg-[#090b0e] py-4 text-center text-xs text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span>Prepared by Kushal Sharma for Morningstar & PitchBook Engineering</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
